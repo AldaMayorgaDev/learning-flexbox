@@ -66,3 +66,178 @@ h1, h2 {
     background-color: var(--blanco);
     padding: 5rem;
 }
+
+/*1.- Display: Flex*/
+.d-flex{
+    display: flex;
+}
+
+/*2.- flex: direction*/
+.d-flex-2{
+    display: flex; /* Automaticamente hace un flex-direction: row */
+    flex-direction: column; /* Arriba hacia abajo */
+    flex-direction: column-reverse; /* abajo hacia arriba */
+    flex-direction: row; /* Horizontal Derecha a izquierda */
+    flex-direction: row-reverse; /* Horizontalde Izquierda a Derecha*/
+}
+
+/*3.- Justify Content cuando Flex-direction es Row */
+/* Sirve para alinear contenido Horizontalmente */
+.d-flex-3{
+    display: flex;
+    justify-content: flex-start; /* izquiera */
+    justify-content: flex-end; /*A la derecha*/
+    justify-content: center; /* Centro */
+    justify-content: space-around; /* Mismo espacio entre elementos y se suman los espacios*/
+    justify-content: space-evenly; /* Mismo espacio entre elementos con margin colapse*/
+    justify-content: space-between; /* Distribuye los ementos entre todo el contenedor */
+}
+
+/*4.- Justify Content cuando Flex-direction es column */
+/* Sirve para alinear el contenido verticalmente  */
+.d-flex-4{
+    display: flex;
+    flex-direction: column;
+    height: 1000px; /* Altura del contenedor */
+
+    justify-content: flex-start; /* Alinea los elementos  hasta arriba  */ 
+    justify-content: flex-end; /* Alinea los elementos abajo*/
+    justify-content: center; /* Centro vertical */
+    justify-content: space-around; /* Mismo espacio entre elementos verticalmente y se suman los espacios*/
+    justify-content: space-evenly; /* Mismo espacio entre elementos verticalmente con margin colapse*/
+    justify-content: space-between; /* Distribuye los ementos entre todo el contenedor verticalmente*/
+}
+
+/*5.- Align-items cuando Flex-direction es Row */
+/* Sirve para alinear contenido verticalmente */
+
+.d-flex-5{
+    height: 700px; /* Alutra del contenedor */
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start; /* Alinea los elementos  hasta arriba  */ 
+    align-items: flex-end; /* Alinea los elementos hasta abajo*/
+    align-items: center; /* Centro verticalmente */
+
+    align-items: stretch; /* es el valor por defecto, estira los elementos para ocupar todo el contenedor */
+}
+
+/*6.- Align-items cuando Flex-direction es Column */
+/* Sirve para alinear contenido Horizontalmente */
+
+.d-flex-6{
+    display: flex;
+    flex-direction: column;
+    height: 800px;
+    align-items: flex-start; /* izquierda horizontalmente */
+    align-items: flex-end; /* derecha horizontalemnte */
+    align-items: center; /* centro horizontal */
+    align-items: stretch; /* estira los elementos para ocupar todo el contenedor horizontalmente */
+ }
+
+ /* 7.- justify-content y align-items juntos */
+ .d-flex-7{
+    display: flex;
+    flex-direction: column;
+    height: 700px;
+
+    align-items: flex-end;
+    justify-content: flex-start;
+ }
+
+ /* 8. flex. basis */
+ /* flex basis es un propiedad que se aplica en los hijos */
+ /* funciona como un weidth inicial, que creece de acuerdo al contenido */
+ .d-flex-8{
+    display: flex;
+ }
+ .d-flex-8 .box{
+    flex-basis: 200px;
+    flex-basis: 33%;
+ }
+
+ /* 9.- Gap y calc() */
+ /* Se apli a en los hijos */
+ /* Sirve para  crear layuts con flex-box, agrega separacion entre las columnas de flex-box*/
+ .d-flex-9{
+    display: flex;
+    gap: 2rem;
+
+ }
+ .d-flex-9 .box{
+    flex-basis: calc(550px - 30px);
+ }
+
+ /* 10.- flex-wrap */
+ /* Para Aplicar que los elementos puedan acomodarse abajo si no tienen el espacio suficiente */
+ /*  */
+ .d-flex-10{
+    display: flex;
+    flex-wrap: wrap;
+ }
+
+ .d-flex-10 .box {
+    flex-basis: 33.3%;
+ }
+
+ /* 11.- Flex-grow (factor de crecimiento) */
+ /* Se aplica en los hijos */
+ /* Al indicar 1, los hijos crecen para ocupart el total de espacio horizontal de su padre, si hay muchos hijos todos crecen al mismo tamaño dividiendose el total de espacio */
+ /* Se puede entender que el valor que indicamos lo va asignando a cada hijo hasta que ya se cubre el total del espacio del contendor padre */
+
+ .d-flex-11{
+    display: flex;
+ }
+ .d-flex-11 .box{
+    flex-grow: 1;
+ }
+
+ /* Ejemplo de flex-grow distitnos a los elementos */
+
+ .d-flex-11 .box:nth-child(1){
+    flex-grow: 2;
+ }
+ .d-flex-11 .box:nth-child(2){
+    flex-grow: 1;
+ }
+ .d-flex-11 .box:nth-child(3){
+    flex-grow: 1;
+ }
+ 
+ /* 12.- Flex shrink (Factor de disminucion de tamaño) */
+ /* Mientras se haga pequeño el contendor, el hijo se ira haciendo mas pequeño de acuerdo al numero de pixeles que indiquemos */
+ /* Ayuda a disminur el tamaño de cierto elemento */
+
+ .d-flex-12{
+    display: flex;
+ }
+
+ .d-flex-12 .box{
+    flex-grow: 1;
+    flex-basis: 300px;
+ }
+
+ .d-flex-12 .box:nth-child(3){
+    flex-shrink: 2;
+ }
+
+
+ /* 13.- flex Shorthand */
+ /* Se aplica en los hijos */
+ /* Es la union de flex-basis, flex-grow, flex-shrink */
+ /* Su sintaxis es 
+       flex: valorFlex-grow valorFlex-shrink valorFlex-basis; 
+ */
+ /* Comunmente solo se encuentra como flex:1 */
+
+ .d-flex-13{
+    display: flex;
+ }
+
+ .d-flex-13 .box{
+/*     flex-grow: 1;
+    flex-basis: 33.3%;
+    flex-shrink: 1; */
+
+    flex: 1 1 33.3%;
+ }
